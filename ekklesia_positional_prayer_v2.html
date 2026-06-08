@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Ekklesia 崗位守望禱告</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Noto+Serif+TC:wght@300;400;500;700&family=IM+Fell+English:ital@0;1&family=Oswald:wght@500;600&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-dim: #8B6914;
+  --gold-pale: #F5E9CC;
+  --deep: #0C0C18;
+  --navy: #0F1428;
+  --ink: #1A1A30;
+  --text: #EDE8DC;
+  --muted: #9A8F78;
+  --soft: #F8F4EC;
+  --radius: 6px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+
+body {
+  background: var(--deep);
+  color: var(--text);
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  line-height: 1.85;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+.site-header {
+  background: linear-gradient(160deg, #0F1438 0%, #1A0F38 60%, #0C0C18 100%);
+  padding: 48px 20px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,.18) 0%, transparent 65%);
+  pointer-events: none;
+}
+.header-label {
+  font-family: 'Cinzel', serif;
+  font-size: .65rem;
+  letter-spacing: 5px;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  position: relative;
+}
+.header-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.4rem, 5vw, 2.2rem);
+  color: var(--gold);
+  line-height: 1.3;
+  margin-bottom: 8px;
+  position: relative;
+}
+.header-sub {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  color: var(--muted);
+  font-size: .9rem;
+  position: relative;
+}
+.header-verse {
+  margin-top: 20px;
+  border-top: 1px solid rgba(201,168,76,.2);
+  padding-top: 16px;
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: .85rem;
+  color: var(--gold-pale);
+  position: relative;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+.header-verse cite { display:block; margin-top:6px; font-style:normal; font-size:.75rem; color:var(--gold-dim); letter-spacing:1px; }
+
+/* ── HOW TO USE ── */
+.how-to {
+  background: rgba(201,168,76,.05);
+  border-bottom: 1px solid rgba(201,168,76,.12);
+  padding: 14px 20px;
+  text-align: center;
+  font-size: .78rem;
+  color: var(--muted);
+  letter-spacing: .5px;
+}
+.how-to strong { color: var(--gold); }
+
+/* ── NAV TABS ── */
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--navy);
+  border-bottom: 1px solid rgba(201,168,76,.15);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.nav-wrap::-webkit-scrollbar { display:none; }
+.nav-tabs {
+  display: flex;
+  width: max-content;
+  min-width: 100%;
+  padding: 0 8px;
+}
+.nav-tab {
+  padding: 12px 14px;
+  font-size: .75rem;
+  font-family: 'Noto Serif TC', serif;
+  color: var(--muted);
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color .2s, border-color .2s;
+  user-select: none;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.nav-tab.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+.nav-tab .tab-icon { margin-right: 5px; }
+
+/* ── MAIN ── */
+.main { padding: 0 0 80px; }
+
+/* ── SECTION PANEL ── */
+.section-panel {
+  display: none;
+  animation: fadeIn .3s ease;
+}
+.section-panel.active { display: block; }
+
+@keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+
+/* ── SECTION HERO ── */
+.section-hero {
+  padding: 32px 20px 24px;
+  background: linear-gradient(135deg, var(--ink) 0%, var(--navy) 100%);
+  border-bottom: 1px solid rgba(201,168,76,.15);
+}
+.section-icon { font-size: 2.4rem; margin-bottom: 10px; }
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.25rem;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.section-subtitle {
+  font-size: .82rem;
+  color: var(--muted);
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+}
+.section-tag {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: .68rem;
+  letter-spacing: 2px;
+  color: var(--gold-dim);
+  border: 1px solid rgba(201,168,76,.3);
+  padding: 2px 10px;
+  text-transform: uppercase;
+  font-family: 'Cinzel', serif;
+}
+
+/* ── NUMERIC DISPLAY ── */
+.num-display {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* ── CARDS ── */
+.cards { padding: 16px 16px 0; }
+
+.card {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(201,168,76,.12);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 14px 16px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  -webkit-tap-highlight-color: transparent;
+}
+.card-num {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gold);
+  min-width: 38px;
+  margin-top: 0;
+  letter-spacing: 2px;
+  line-height: 1.3;
+}
+.card-title-wrap { flex:1; }
+.card-title {
+  font-size: .95rem;
+  color: var(--gold-pale);
+  font-weight: 600;
+  line-height: 1.4;
+}
+.card-arrow {
+  color: var(--gold-dim);
+  font-size: .8rem;
+  margin-top: 3px;
+  transition: transform .25s;
+  flex-shrink: 0;
+}
+.card.open .card-arrow { transform: rotate(180deg); }
+
+.card-body {
+  display: none;
+  padding: 0 16px 16px;
+  border-top: 1px solid rgba(201,168,76,.08);
+}
+.card.open .card-body { display: block; }
+
+.card-desc {
+  font-size: .85rem;
+  color: var(--muted);
+  line-height: 1.8;
+  padding-top: 12px;
+  margin-bottom: 14px;
+}
+
+/* ── DIRECTION ITEMS ── */
+.direction-list { margin-bottom: 16px; }
+.direction-item {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: .85rem;
+  color: var(--text);
+  line-height: 1.7;
+}
+.direction-dot {
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 3px;
+  font-size: .7rem;
+}
+
+/* ── PRAYER BOX ── */
+.prayer-box {
+  background: rgba(201,168,76,.06);
+  border: 1px solid rgba(201,168,76,.18);
+  border-radius: 4px;
+  padding: 14px 16px;
+}
+.prayer-label {
+  font-family: 'Cinzel', serif;
+  font-size: .68rem;
+  letter-spacing: 2px;
+  color: var(--gold);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.prayer-text {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: .9rem;
+  color: var(--gold-pale);
+  line-height: 1.9;
+}
+
+/* ── SCRIPTURE STRIPS ── */
+.scripture-strip {
+  margin: 0 16px 16px;
+  padding: 12px 16px;
+  background: rgba(201,168,76,.04);
+  border-left: 2px solid rgba(201,168,76,.3);
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: .85rem;
+  color: var(--gold-pale);
+  line-height: 1.8;
+}
+.scripture-strip cite { display:block; font-style:normal; font-size:.72rem; color:var(--gold-dim); margin-top:4px; letter-spacing:1px; }
+
+/* ── SECTION CLOSING PRAYER ── */
+.closing-prayer {
+  margin: 0 16px 24px;
+  background: linear-gradient(135deg, rgba(15,20,60,.8), rgba(30,10,60,.8));
+  border: 1px solid rgba(201,168,76,.2);
+  border-radius: var(--radius);
+  padding: 20px;
+  text-align: center;
+}
+.closing-prayer h3 {
+  font-family: 'Cinzel', serif;
+  font-size: .75rem;
+  color: var(--gold);
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+.closing-prayer p {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: .9rem;
+  color: var(--gold-pale);
+  line-height: 1.9;
+}
+
+/* ── FOOTER ── */
+.site-footer {
+  background: var(--ink);
+  border-top: 1px solid rgba(201,168,76,.15);
+  padding: 28px 20px;
+  text-align: center;
+}
+.site-footer .maranatha {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 6px;
+  margin-bottom: 8px;
+}
+.site-footer p {
+  font-size: .75rem;
+  color: var(--muted);
+  line-height: 2;
+}
+
+/* ── SEPARATOR ── */
+.sep {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 4px 16px 16px;
+}
+.sep span { flex:1; height:1px; background: linear-gradient(90deg,transparent,rgba(201,168,76,.2),transparent); }
+.sep-icon { color: var(--gold-dim); font-size: .8rem; }
+
+/* ── EKKLESIA REMINDER BANNER ── */
+.ekklesia-reminder {
+  background: linear-gradient(135deg, #0F1438 0%, #1A0A30 100%);
+  border-bottom: 1px solid rgba(201,168,76,.25);
+  padding: 18px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.ekklesia-reminder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.reminder-title {
+  font-family: 'Cinzel', serif;
+  font-size: .7rem;
+  letter-spacing: 3px;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  position: relative;
+}
+.reminder-body {
+  position: relative;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.reminder-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.reminder-text {
+  flex: 1;
+}
+.reminder-call {
+  font-family: 'Noto Serif TC', serif;
+  font-size: .82rem;
+  color: var(--gold-pale);
+  line-height: 1.85;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.reminder-call strong {
+  color: var(--gold);
+}
+.reminder-verse {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: .82rem;
+  color: rgba(245,233,204,.75);
+  line-height: 1.85;
+  border-left: 2px solid rgba(201,168,76,.35);
+  padding-left: 12px;
+}
+.reminder-verse cite {
+  display: block;
+  font-style: normal;
+  font-size: .7rem;
+  color: var(--gold-dim);
+  margin-top: 4px;
+  letter-spacing: 1px;
+}
+
+/* ── KINGDOM TENSION BANNER ── */
+.kingdom-banner {
+  background: linear-gradient(135deg, #0F1438 0%, #1A0830 100%);
+  border-top: 2px solid rgba(201,168,76,.3);
+  border-bottom: 2px solid rgba(201,168,76,.3);
+  padding: 20px 18px;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+.kingdom-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(201,168,76,.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.kb-title {
+  font-family: 'Cinzel', serif;
+  font-size: .72rem;
+  letter-spacing: 3px;
+  color: #7A5E1A;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  position: relative;
+}
+.kb-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+  position: relative;
+}
+@media (max-width: 480px) { .kb-grid { grid-template-columns: 1fr; } }
+.kb-col {
+  background: rgba(255,255,255,.04);
+  border-radius: 4px;
+  padding: 12px 14px;
+}
+.kb-col-title {
+  font-family: 'Cinzel', serif;
+  font-size: .68rem;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+.kb-world { color: #C9A84C; border-left: 2px solid #C9A84C; padding-left: 10px; }
+.kb-kingdom { color: #A070D0; border-left: 2px solid #A070D0; padding-left: 10px; }
+.kb-col-title.world-t { color: #C9A84C; }
+.kb-col-title.kingdom-t { color: #A070D0; }
+.kb-item {
+  font-size: .78rem;
+  line-height: 1.7;
+  margin-bottom: 3px;
+  opacity: .85;
+}
+.kb-tensions {
+  position: relative;
+  margin-bottom: 14px;
+}
+.kb-tension-item {
+  background: rgba(255,255,255,.03);
+  border-left: 2px solid rgba(201,168,76,.3);
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  border-radius: 0 3px 3px 0;
+}
+.kb-tension-title {
+  font-size: .78rem;
+  color: #F5E9CC;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+.kb-tension-desc { font-size: .75rem; color: #9A8F78; line-height: 1.65; }
+.kb-prayer {
+  background: rgba(201,168,76,.06);
+  border: 1px solid rgba(201,168,76,.18);
+  border-radius: 4px;
+  padding: 13px 15px;
+  position: relative;
+}
+.kb-prayer-label {
+  font-family: 'Cinzel', serif;
+  font-size: .65rem;
+  letter-spacing: 2px;
+  color: #C9A84C;
+  margin-bottom: 8px;
+}
+.kb-prayer-text {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: .85rem;
+  color: #F5E9CC;
+  line-height: 1.9;
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-label">Singapore · Ekklesia · Intercession</div>
+  <h1 class="header-title">崗位守望禱告</h1>
+  <p class="header-sub">按崗位 · 為所處之地 · 向神守望</p>
+  <div class="header-verse">
+    「你們是世上的鹽……你們是世上的光。城造在山上，是不能隱藏的。」
+    <cite>— 馬太福音 5:13–14</cite>
+  </div>
+</header>
+
+<!-- EKKLESIA REMINDER -->
+<div class="ekklesia-reminder">
+  <div class="reminder-title">✦ Ekklesia 的呼召 ✦</div>
+  <div class="reminder-body">
+    <div class="reminder-icon">🔥</div>
+    <div class="reminder-text">
+      <p class="reminder-call">
+        <strong>Ekklesia 是跟隨耶穌</strong>——進入每一個層面服事人群的門徒。
+        在政府機構、職場企業、學校研究院、醫院社服中心、媒體數字空間、藝術娛樂廣場、組屋社區與每一個有人的角落——祂在哪裡，我們就在哪裡。
+      </p>
+      <p class="reminder-verse">
+        「若有人服事我、就當跟從我．我在那裡、服事我的人、也要在那裡．若有人服事我、我父必尊重他。」
+        <cite>— 約翰福音 12:26</cite>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="how-to">
+  點選 <strong>崗位分頁</strong> → 展開各項禱告方向 → 在你所在的崗位上守望
+</div>
+
+<!-- NAV -->
+<nav class="nav-wrap">
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="switchTab(0)"><span class="tab-icon">🏛️</span>政府政策</button>
+    <button class="nav-tab" onclick="switchTab(1)"><span class="tab-icon">💼</span>職場企業</button>
+    <button class="nav-tab" onclick="switchTab(2)"><span class="tab-icon">🎓</span>教育學術</button>
+    <button class="nav-tab" onclick="switchTab(3)"><span class="tab-icon">🏥</span>醫療服務</button>
+    <button class="nav-tab" onclick="switchTab(4)"><span class="tab-icon">📺</span>媒體文化</button>
+    <button class="nav-tab" onclick="switchTab(5)"><span class="tab-icon">⛪</span>Ekklesia事奉</button>
+    <button class="nav-tab" onclick="switchTab(6)"><span class="tab-icon">🏠</span>家庭社區</button>
+  </div>
+</nav>
+
+<main class="main">
+
+<!-- ═══════════════════════════════════ -->
+<!-- PANEL 0：政府與公共政策 -->
+<!-- ═══════════════════════════════════ -->
+<div class="section-panel active" id="panel-0">
+  <div class="section-hero">
+    <div class="section-icon">🏛️</div>
+    <h2 class="section-title">政府與公共政策</h2>
+    <p class="section-subtitle">Government & Public Policy</p>
+    <span class="section-tag">城中的先知聲音</span>
+  </div>
+
+  <div class="scripture-strip">
+    「君王的心在耶和華手中，好像隴溝的水隨意流轉。」
+    <cite>— 箴言 21:1</cite>
+  </div>
+
+  <div class="cards">
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">01</div>
+        <div class="card-title-wrap"><div class="card-title">為政府領袖求智慧</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">為總理黃循財、副總理顏金勇及內閣成員禱告，求神讓ESR的32項建議在他們手中落實，而非流於文件。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神賜他們超越人的智慧，在地緣政治撕裂的格局中看清方向</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓他們的決策出於對人民真實的愛，而非只維持政治地位</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓「對AI的謹慎」和「對工人的憐憫」進入政策討論</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神在他們施政之外，讓他們的靈魂也向祂敞開</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">主啊，求你讓黃循財總理和他的團隊，在治國的重擔中認識到，這座城市的命運最終在你手中。讓他們在面對複雜抉擇時，有清明的心思、不被恐懼驅動的決策勇氣。感動他們以公義和憐憫治理，而非單純追求GDP數字。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">02</div>
+        <div class="card-title-wrap"><div class="card-title">為公務員群體禱告</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">政策的落實，最終靠的是每一個公務員的手。在MTI、MOM、MOF、MOT、MOE、MDDI、MSE、MCCY、MND、MOH、MHA、MSF、MINDEF、MFA、MinLaw，以及EDB、SWDA、SkillsFuture、MAS、NTUC中的Ekklesia信徒，是神放在關鍵位置的守望者。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓在職業轉換局、人力部工作的Ekklesia信徒，以憐憫心服務每一個求助者</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓在AI政策部門的Ekklesia信徒，在技術討論中持守人的尊嚴</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神感動Ekklesia信徒在會議中敢於發出不同聲音，為弱勢群體說話</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神保守他們不被官僚文化磨蝕對人的熱情</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">父神，感謝你在政府部門裏放置Ekklesia信徒作守望者。求你讓他們的崗位不只是職業，而是使命。無論是在MTI制定政策、MOH照顧病人、MSF服事弱勢、MOE塑造下一代、MDDI守護真實，都是為你守望這座城市。當他們面對壓力而不得不妥協的時刻，求你給他們立場和勇氣，讓神國的公義透過他們的手流出。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">03</div>
+        <div class="card-title-wrap"><div class="card-title">為ESR政策落實守望</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">32項建議能否真正落地，決定數十萬個家庭的命運。守望者要持續關注政策落實的情況，而非只在發布時禱告。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>為「職業橋樑」計劃真正觸及14,490名被裁員工守望</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>為SWDA一站式就業中心真正以服事心態運作守望</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>為政府在監測AI對就業影響時，有勇氣承認問題並調整政策</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>為7,700名持份者的聲音，特別是基層工人的聲音，被真正落實</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">主啊，求你讓每一項ESR建議背後，都有你在守望其落實。讓那些在諮詢過程中說出真心話的基層工人、外籍勞工、中年PMET的聲音，真正被聽見、被記念、被行動回應。使政策不只是選舉前的承諾。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">04</div>
+        <div class="card-title-wrap"><div class="card-title">為社會公義與弱勢發聲</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">外籍勞工、低學歷工人、被年齡歧視的中年人——他們往往是政策文件中最後被提及、最先被犧牲的群體。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓保護網觸及外籍勞工，他們長期支撐新加坡卻缺乏保障</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓年齡歧視在招聘過程中被嚴肅對待</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓政府的「去碳化成本」不轉嫁至低收入家庭</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓AI帶來的財富增長公平惠及社會各階層</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">神啊，你是孤兒和寡婦的保護者，是寄居者的守護神。求你讓新加坡的公共政策，真實反映你對弱勢的心意。讓每一個被政策遺忘的人，在Ekklesia中找到代言人。</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /cards -->
+
+  <div class="sep"><span></span><span class="sep-icon">✦</span><span></span></div>
+
+  <div class="closing-prayer">
+    <h3>✦ 政府崗位守望宣告 ✦</h3>
+    <p>「我們在這城市的政府機構中守望，不是旁觀者，而是為這城市的公義、憐憫和治理的智慧向神代求的人。」</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════ -->
+<!-- PANEL 1：職場與企業 -->
+<!-- ═══════════════════════════════════ -->
+<div class="section-panel" id="panel-1">
+  <div class="section-hero">
+    <div class="section-icon">💼</div>
+    <h2 class="section-title">職場與企業</h2>
+    <p class="section-subtitle">Workplace & Business</p>
+    <span class="section-tag">週一至週五的先知</span>
+  </div>
+
+  <div class="scripture-strip">
+    「你們所做的一切，要從心裏做，像是為主做的，不是為人做的。」
+    <cite>— 歌羅西書 3:23</cite>
+  </div>
+
+  <div class="cards">
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">01</div>
+        <div class="card-title-wrap"><div class="card-title">為企業領袖求憐憫心</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">董事局和管理層的決策，直接影響數百個家庭的生計。在AI自動化的商業壓力下，信徒領袖是神放在關鍵位置的守門人。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia信徒董事和管理層，在裁員決策中堅守人的尊嚴</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓他們有勇氣選擇「AI輔助工人」而非「AI取代工人」</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓他們的商業成功，成為社會的祝福而非只是股東回報</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>為DBS模式（全員AI培訓、轉型而非裁員）在更多企業複製而禱告</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">主啊，求你讓新加坡企業裏的Ekklesia信徒領袖，知道自己的崗位是使命而非單純職業。在面對削減成本的董事局壓力時，賜他們智慧提出保護工人的替代方案，並有勇氣為此堅持。讓他們的企業成為神國在職場中的見證。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">02</div>
+        <div class="card-title-wrap"><div class="card-title">為被裁員同事代禱</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">2025年14,490人被裁，渣打計劃2030年前裁7,000後台職位，DBS削減4,000合約職。在職的Ekklesia信徒，是那些被裁者的天然牧者。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia信徒主動關懷職場中被裁員的同事，而非迴避尷尬</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia信徒有智慧協助同事尋找轉職機會和再培訓資源</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia信徒在同事最脆弱時，開口分享真正的盼望</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神保守那些正在等待裁員消息、每天帶著焦慮上班的人</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">父神，那些在辦公室裏默默擔心自己下一個被裁的人，你看見他們的恐懼。求你透過身邊Ekklesia信徒的關懷，讓他們感受到你的同在。讓Ekklesia信徒的辦公室成為一個有安全感的地方，讓脆弱的人願意說出心中的重擔。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">03</div>
+        <div class="card-title-wrap"><div class="card-title">為中小企業主守望</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">新加坡有大量中小企業主，在AI轉型中缺乏大企業的資源和緩衝。許多人獨自承擔生意存亡的壓力，同時承擔對員工的責任。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓中小企業主能夠真正得到ESR承諾的AI轉型支援</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神給他們智慧辨別哪些AI工具真正適合自己的業務</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia商界網絡成為互相扶持的真實群體</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>為那些在轉型中考慮結業的業主，求神指引出路</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">主啊，那些獨自在轉型浪潮中掙扎的中小企業主，你都知道他們的名字。求你給他們具體的智慧和方向，也讓他們在信仰群體中找到同行的夥伴，不必孤單面對這個時代的挑戰。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">04</div>
+        <div class="card-title-wrap"><div class="card-title">為職場文化的轉化禱告</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">新加坡職場文化往往以效率和成果為最高價值。信徒在職場中的存在，是要帶入神國的文化——尊重人、誠信、公義。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia信徒在職場中以真實的誠信為見證，不隨波逐流</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia信徒對下屬的公平對待，成為職場中的光</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓工作的意義不只是薪水，而是在工作中找到神的呼召</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓職場中的Ekklesia信徒「在地如在天」地活出神國的文化</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">主啊，讓新加坡的每一個辦公室、每一個工廠、每一個工地，因著信徒的存在而有不同。讓我們的誠信、對人的尊重、在壓力中仍保持的平安，成為無聲的見證，讓同事問起這盼望從何而來。</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sep"><span></span><span class="sep-icon">✦</span><span></span></div>
+  <div class="closing-prayer">
+    <h3>✦ 職場崗位守望宣告 ✦</h3>
+    <p>「我們在辦公室、工廠、商場中守望——不是只為自己的職涯，而是為身邊每一個同事的生命，守望神國的降臨。」</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════ -->
+<!-- PANEL 2：教育與學術 -->
+<!-- ═══════════════════════════════════ -->
+<div class="section-panel" id="panel-2">
+  <div class="section-hero">
+    <div class="section-icon">🎓</div>
+    <h2 class="section-title">教育與學術</h2>
+    <p class="section-subtitle">Education & Academia</p>
+    <span class="section-tag">塑造下一代的靈魂</span>
+  </div>
+
+  <div class="scripture-strip">
+    「教養孩童走當行的道，就是到老他也不偏離。」
+    <cite>— 箴言 22:6</cite>
+  </div>
+
+  <div class="cards">
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">01</div>
+        <div class="card-title-wrap"><div class="card-title">為AI時代的教育轉型禱告</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">ESR強調AI素養、人際技能和國際視野。但在AI填滿課程的同時，信徒教育工作者要守護的是學生的靈魂完整性，而非只是就業能力。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓教育政策在重視AI技能的同時，也重視人的品格和靈魂</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia信徒老師成為學生在焦慮時代中的安穩錨點</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>為學術壓力下精神健康惡化的學生守望</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓「人際技能」（AI無法取代的）在教育中得到真正重視</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">主啊，在AI工具能夠生成論文、解答考題的時代，求你讓新加坡的教育者思考：我們究竟在培育什麼樣的人？讓Ekklesia信徒老師和教育工作者，在課程設計和師生關係中，帶入對靈魂的關懷，而非只有成績的追求。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">02</div>
+        <div class="card-title-wrap"><div class="card-title">為學術研究的誠信禱告</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">新加坡的研究創新企業計劃（RIE 2030）承諾S$370億資金支持研究。在龐大資金的驅動下，學術誠信面臨考驗。信徒研究員是守門人。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia信徒研究員在學術競爭中堅守誠信，不造假數據</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓量子科技、生物醫學等研究的成果，真正造福人類</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia信徒在AI研究中提出人文和倫理的聲音</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>為Ekklesia信徒大學生在學術壓力和信仰之間的掙扎代禱</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">神啊，你是一切真知識的源頭。求你讓在NUS、NTU、SMU及各研究機構的Ekklesia信徒，成為學術誠信的守護者。讓他們的研究成果帶著對人類的真實關懷，而非只為發表、只為升遷、只為資金。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">03</div>
+        <div class="card-title-wrap"><div class="card-title">為SkillsFuture的真實落地禱告</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">ESR建議深化SkillsFuture對在職進修的支持，正式承認在職培訓為資歷。信徒培訓師和顧問，是讓政策真正觸及每個人的橋樑。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓SkillsFuture課程真正觸及最需要的人，而非只有已有能力的人</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia信徒培訓師以牧者心腸服事學員，特別是中年轉型者</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓「終身學習」的文化，從學習技能延伸至更新靈魂</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>為那些已精疲力竭、難以再學習新技能的工人代禱</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">父神，求你讓終身學習的精神，在信徒身上首先活出來。讓Ekklesia（一群跟隨耶穌的門徒）成為社區中鼓勵學習、分享知識、幫助人重新出發的地方。讓Ekklesia信徒顧問和培訓師，在每一個學員身上看見你所愛的人，而非一個課程的完成數字。</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">04</div>
+        <div class="card-title-wrap"><div class="card-title">為幼兒教育工作者守望禱告</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">ESR明確建議提升幼兒教育薪酬和吸引力。ECDA的23,000名幼兒教育工作者是新加坡最重要、卻最被低估的群體之一。全日制幼兒園費用上限2026年為S$610/月，幼兒教育師資缺口持續存在。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓ESR提升幼兒教育薪酬的建議真正落實，讓照顧孩子的職業得到應有的尊重和報酬</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia信徒幼兒教育工作者，以呼召而非只是職業的心態服事每一個孩子</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>為在幼兒教育崗位上感到精疲力竭、薪酬不足的教育工作者代禱，求神更新他們的力量和使命感</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓KidSTART計劃真正觸及低收入家庭的0-6歲兒童，為他們建立強健的生命根基</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">主啊，那些每天在幼兒園裏陪伴孩子、擦眼淚、說故事的教育工作者，你看見他們的付出。在AI可以生成教材、可以批改功課的時代，真正無可取代的，是他們對孩子的真實關愛和人性連結。求你讓新加坡重新珍視這份職業，讓政策的改善真正落地。讓Ekklesia信徒在幼兒教育崗位上，成為孩子生命中第一個認識的愛的榜樣。</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sep"><span></span><span class="sep-icon">✦</span><span></span></div>
+  <div class="closing-prayer">
+    <h3>✦ 教育崗位守望宣告 ✦</h3>
+    <p>「我們在課室、研究室、培訓中心守望——不只傳授知識，更塑造靈魂，培育在AI時代仍能彰顯人性之美的下一代。」</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════ -->
+<!-- PANEL 3：醫療與社會服務 -->
+<!-- ═══════════════════════════════════ -->
+<div class="section-panel" id="panel-3">
+  <div class="section-hero">
+    <div class="section-icon">🏥</div>
+    <h2 class="section-title">醫療與社會服務</h2>
+    <p class="section-subtitle">Healthcare & Social Services</p>
+    <span class="section-tag">以愛托住破碎</span>
+  </div>
+
+  <div class="scripture-strip">
+    「他醫好了傷心的人，裹好他們的傷處。」
+    <cite>— 詩篇 147:3</cite>
+  </div>
+
+  <div class="cards">
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">01</div>
+        <div class="card-title-wrap"><div class="card-title">為醫療科技中的人性禱告</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">ESR重點發展生物醫學和醫療科技，AI在診斷、藥物研發等領域快速應用。信徒醫護人員是守護醫療中人性溫度的關鍵人物。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓AI醫療工具真正服務於病人，而非只是醫院的效率指標</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia信徒醫護人員在數字化醫療環境中，保持與病人的真實連結</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓「全人照顧」（身、心、靈）的概念在醫療體系中有立足之地</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>為在疲憊的醫護系統中仍堅持以愛服事的Ekklesia信徒禱告</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">主耶穌，你是大醫生。求你讓Ekklesia信徒醫護人員知道，每一個病床上的人，都是你所愛的。讓他們在繁忙的班次和AI診斷工具之外，仍有時間停下來，真正看見眼前的病人，用你的眼光看待病痛和死亡。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">02</div>
+        <div class="card-title-wrap"><div class="card-title">為老齡化社會的照顧禱告</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">新加坡人口迅速老齡化，ESR承認這是主要挑戰之一。老年人的照顧，是AI難以完全替代的人際使命——正是Ekklesia的召命所在。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓「前進新加坡」的醫療和社會支援支柱，真正惠及老年人</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia信徒在社區中主動照顧獨居老人，成為政府服務的補充</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓老年人在生命的最後階段，感受到尊嚴和被愛，而非被遺忘</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>為照顧年邁父母的中年信徒（同時面對職場壓力）代禱</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">神啊，你看顧老者，你珍視白髮。求你讓新加坡的老年人，特別是那些獨自住在組屋裏的長者，感受到被看顧。讓Ekklesia信徒的社區，成為他們日常生活中真實的陪伴。讓Ekklesia（一群跟隨耶穌的門徒）的探訪事工，成為政府服務網絡觸及不到之處的橋樑。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">03</div>
+        <div class="card-title-wrap"><div class="card-title">為社工與輔導員的力量禱告</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">在職場焦慮、裁員衝擊和家庭壓力交疊的時代，社工和輔導員承受著前所未有的需求。信徒社工是在最破碎之處守望的人。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神保護Ekklesia信徒社工不被個案的重擔壓垮，使他們得著更新的力量</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓輔導員在服事失業、焦慮、家庭危機中，帶入真正的盼望</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓信仰群體認真支持在社會服務崗位的Ekklesia信徒，給予他們代禱和陪伴</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>為ESR建議提升幼兒教育和輔助醫療薪酬的落實守望</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">父神，感謝你呼召信徒進入最邊緣的地方服事。求你讓那些日復一日在社工崗位上付出的Ekklesia信徒，知道他們的每一份努力，在天上都被記念。讓他們的力量不是來自自己，而是來自你那用不盡的憐憫。</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">04</div>
+        <div class="card-title-wrap"><div class="card-title">為年長者醫療與照顧系統守望</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">新加坡2026年正式進入「超老齡社會」，30%的失智症照顧者為提供照顧而放棄工作。慢性孤獨對長者健康的影響等同於每天吸煙一包。Age Well SG是政府應對老齡化的主要計劃，但社區資源仍然不足。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓信徒醫護人員對年長病人有更多耐心和尊重，不讓他們在繁忙的醫療系統中感到被催促</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>為失智症照顧者守望——30%為照顧而放棄就業，情緒耗竭和抑鬱風險極高</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Age Well SG超過20,000名長者受惠的社區活躍樂齡計劃，成為真正對抗孤獨的力量</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神感動Ekklesia信徒加入銀髮義工行列，成為政府服務網絡觸及不到之處的補充</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">主耶穌，你是大醫生，也是那位在失智症黑暗中仍認識每一個人名字的神。求你讓新加坡的醫療系統，對年長病人充滿尊重和耐心。讓照顧失智症家人的30%辭職照顧者，在最疲憊的時刻感受到你的扶持。讓Ekklesia信徒成為銀髮群體真實的陪伴者——不只是服務提供者，而是朋友。</p>
+        </div>
+      </div>
+    </div>
+
+
+  <div class="sep"><span></span><span class="sep-icon">✦</span><span></span></div>
+  <div class="closing-prayer">
+    <h3>✦ 醫療服務崗位守望宣告 ✦</h3>
+    <p>「我們在醫院走廊、社服中心、老人院守望——以大醫生耶穌的名，帶入醫治、尊嚴和盼望。」</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════ -->
+<!-- PANEL 4：媒體與文化 -->
+<!-- ═══════════════════════════════════ -->
+<div class="section-panel" id="panel-4">
+  <div class="section-hero">
+    <div class="section-icon">📺</div>
+    <h2 class="section-title">媒體與文化</h2>
+    <p class="section-subtitle">Media & Culture</p>
+    <span class="section-tag">敘事的守門人</span>
+  </div>
+
+  <div class="scripture-strip">
+    「凡是真實的、可敬的、公義的、清潔的、可愛的、有美名的事，這些事你們都要思念。」
+    <cite>— 腓立比書 4:8</cite>
+  </div>
+
+  <div class="cards">
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">01</div>
+        <div class="card-title-wrap"><div class="card-title">為媒體中的真實守望</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">AI生成內容氾濫，媒體的可信度面臨前所未有的挑戰。ESR將「信任型服務」列為新增長引擎，而信任始於真實的報道和敘事。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia信徒記者和媒體人在後真相時代持守事實的誠信</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓媒體在報道裁員和AI衝擊時，有對普通工人的真實同理</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia信徒在社交媒體上的分享，傳播盼望而非焦慮和恐懼</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>為AI生成假訊息對公眾輿論的影響守望</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">神啊，你是真理的神。在一個「什麼都可以被製造」的時代，求你讓Ekklesia信徒媒體人成為真實的守護者。讓他們的報道帶著對人的尊重和對事實的執著，讓新加坡的公共輿論場，有Ekklesia信徒的聲音持守誠信的敘事。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">02</div>
+        <div class="card-title-wrap"><div class="card-title">為文化創作中的盼望禱告</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">在焦慮的時代，藝術和文化是塑造集體靈魂的力量。信徒藝術家、創作人、音樂人，是神在文化山頭上的守望者。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia信徒創作者用藝術傳遞盼望，而非只跟從市場趨勢</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓新加坡的文化場景，有反映神的美善和人的尊嚴的聲音</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia信徒在AI生成藝術氾濫中，以真實的人性創作脫穎而出</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>為在經濟壓力下難以維持創作生計的Ekklesia信徒藝術家代禱</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">創造天地的神，你是美善的源頭。求你讓Ekklesia信徒藝術家知道，他們的創作是一種禱告、一種守望。讓他們的電影、音樂、文字和視覺藝術，在新加坡的文化土壤中播下對永恆的渴慕，讓觀看的人在美麗中遇見你。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">03</div>
+        <div class="card-title-wrap"><div class="card-title">為數字空間的守望禱告</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">ESR強調建立跨境數據流動的領導地位，新加坡的數字空間將成為更重要的經濟戰場。信徒在數字空間中的存在和見證，極為重要。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia信徒在社交媒體上的存在，帶出光而非噪音</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia信徒內容創作者，在AI內容泛濫中以真實的生命故事吸引人</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓網絡安全和AI治理領域的Ekklesia信徒，成為倫理的守門人</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>為數字空間中的孤獨、成癮和身份焦慮代禱</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">主啊，在無形的數字空間中，求你也讓Ekklesia有守望者。讓信徒在這個空間中帶入真實、盼望和神國的價值觀，讓每一個在深夜刷手機的孤獨靈魂，有機會在數字空間中遇見真實的愛。</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sep"><span></span><span class="sep-icon">✦</span><span></span></div>
+  <div class="closing-prayer">
+    <h3>✦ 媒體文化崗位守望宣告 ✦</h3>
+    <p>「我們在鏡頭前、麥克風前、創作桌前守望——讓每一份作品都成為向這城市投出的盼望之光。」</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════ -->
+<!-- PANEL 5：Ekklesia與全職事奉 -->
+<!-- ═══════════════════════════════════ -->
+<div class="section-panel" id="panel-5">
+  <div class="section-hero">
+    <div class="section-icon">⛪</div>
+    <h2 class="section-title">Ekklesia與全職事奉</h2>
+    <p class="section-subtitle">Church & Full-time Ministry</p>
+    <span class="section-tag">城牆上的守望者</span>
+  </div>
+
+  <div class="scripture-strip">
+    「我要把我的教會建造在這磐石上，陰間的權柄不能勝過它。」
+    <cite>— 馬太福音 16:18</cite>
+  </div>
+
+  <div class="cards">
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">01</div>
+        <div class="card-title-wrap"><div class="card-title">為教會從宗教性轉為Ekklesia禱告</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">新加坡有數百間教會，但在公共議題上往往沉默，在社區中往往只服事信徒群體。真正的Ekklesia，是被差派進入城市每一個角落的群體。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓牧者領袖的異象，從「會眾增長」擴展至「城市轉化」</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia的禱告清單，包含新加坡真實的公共議題</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia的事工，不只在聚會建築內，也在社區中心、咖啡廳、組屋走廊</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓ESR的32項建議成為Ekklesia守望禱告的具體事項</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">主啊，求你拓展新加坡Ekklesia的異象。讓我們不只滿足於會友出席率和奉獻數字，而是開始問：這座城市因著我們的存在而有何不同？讓Ekklesia成為不可隱藏的城，在人口最密集的城市裏，帶入最真實的神同在。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">02</div>
+        <div class="card-title-wrap"><div class="card-title">為牧者和全職事奉者代禱</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">在職場焦慮和社會撕裂的時代，會眾對牧者的需求更大、壓力更重。牧者自己的靈命健康，是整個群體的關鍵。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓牧者在繁重的服事中，仍有與神獨處的泉源和空間</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神保護牧者家庭，讓服事不成為家庭破裂的代價</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓牧者在面對職場焦慮的會眾時，帶入真實而非空洞的安慰</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>為Ekklesia需要提供「職業輔導、情緒支援、實際幫助」的新挑戰裝備牧者</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">父神，你是牧人的牧人。求你讓新加坡每一位牧者，在這個艱難時代知道他們並不孤單——有你在旁。讓他們的講道不只是知識，而是來自親身與你相遇的分享。讓他們的牧養，帶著真實的同理和具體的幫助。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">03</div>
+        <div class="card-title-wrap"><div class="card-title">為跨宗派合一守望禱告</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">新加坡有華語、英語、淡米爾語、馬來語的Ekklesia群體，有聖公會、浸信會、靈恩派、保守福音派。合一的守望，是末世最有力的見證。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓不同宗派的Ekklesia，在城市守望上找到共同的禱告事項</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓語言和文化的界限，不成為Ekklesia合一的障礙</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓「為新加坡守望」成為所有Ekklesia共有的使命</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia在面對政府和社會政策時，有合一的回應</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">主耶穌，你在約翰福音17章為合一禱告。求你讓新加坡不同背景、不同語言的Ekklesia，在守望這城市的使命上找到合一。讓我們在神學分歧上彼此尊重，但在「為城市守望」上彼此攜手。讓合一成為新加坡最有力的佈道。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">04</div>
+        <div class="card-title-wrap"><div class="card-title">為Ekklesia的實際社區行動禱告</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">禱告必須連結行動。Ekklesia可以在ESR承諾的「職業橋樑」之外，成為非正式但真實的就業網絡、心理支援和危機援助系統。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia在群體中建立真實的「職業守望網」——分享工作機會、介紹認識</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia的輔導服務，在失業焦慮潮中對社區開放</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia的財務援助，真實幫助在過渡期掙扎的家庭</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia成為外籍勞工在新加坡感受到尊重和關愛的地方</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">主啊，讓新加坡的Ekklesia（一群跟隨耶穌的門徒）在2026年的經濟轉型中，成為社區中最實際的幫助。讓會眾不只在主日聽道，也在週間彼此扶持——分享工作機會、陪伴求職者、在最脆弱的時刻伸出具體的手。以賽亞書58章的Ekklesia，願在新加坡成真。</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sep"><span></span><span class="sep-icon">✦</span><span></span></div>
+  <div class="closing-prayer">
+    <h3>✦ Ekklesia事奉崗位守望宣告 ✦</h3>
+    <p>「我們不在四堵牆內等候人來，我們是被差派的Ekklesia——走出去，進入城市，成為神同在在每一個角落的彰顯。」</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════ -->
+<!-- PANEL 6：家庭與社區 -->
+<!-- ═══════════════════════════════════ -->
+<div class="section-panel" id="panel-6">
+  <div class="section-hero">
+    <div class="section-icon">🏠</div>
+    <h2 class="section-title">家庭與社區</h2>
+    <p class="section-subtitle">Family & Community</p>
+    <span class="section-tag">最小的國度單位</span>
+  </div>
+
+  <div class="scripture-strip">
+    「看哪，弟兄和睦同居，是何等的善，何等的美！」
+    <cite>— 詩篇 133:1</cite>
+  </div>
+
+  <div class="cards">
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">01</div>
+        <div class="card-title-wrap"><div class="card-title">為承受裁員壓力的家庭禱告</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">每一個裁員數字背後是一個家庭。當主要收入者失業，壓力蔓延至配偶、孩子和年邁父母。家庭是社會轉型的第一個衝擊點。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓失業的丈夫或妻子，在家庭中仍保有尊嚴和自我價值感</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓夫妻在財務壓力下，選擇彼此靠近而非互相指責</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神保護孩子的心靈，不因父母的焦慮而承受不應屬於他們的重擔</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓這個困難時期，成為家庭一同轉向神的轉機</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">父神，每一個因失業而緊繃的家庭，你都看見。求你成為那個家庭中無形的平安。讓夫妻在壓力下更靠近彼此，讓孩子在父母的信心中學習倚靠你。讓這個家庭的困難，成為日後他們向他人作見證的故事。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">02</div>
+        <div class="card-title-wrap"><div class="card-title">為年輕夫婦和生育率禱告</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">新加坡生育率持續低迷，HDB推出55,000個組屋單位回應住房需求。但年輕一代的猶豫，不只是房價，更是對未來的不確定感。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓年輕夫婦有勇氣和信心迎接孩子，不被對未來的焦慮攔阻</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓HDB的組屋供應，真實幫助年輕家庭安家立業</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓信仰群體在婚姻和育兒上成為年輕夫婦的支撐</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>為那些在不孕、等待組屋、工作不穩定中掙扎的夫婦代禱</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">主啊，孩子是你所賜的產業。求你讓新加坡的年輕夫婦，在不確定的時代中，仍有信心將新生命帶來這世界。讓Ekklesia（一群跟隨耶穌的門徒）成為育兒的村落——讓養育孩子不是孤單的重擔，而是整個信仰群體共同承擔的喜悅。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">03</div>
+        <div class="card-title-wrap"><div class="card-title">為多元社區的凝聚力禱告</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">總理最深的憂慮是社會撕裂。AI帶來的財富鴻溝，在多元種族社會中可能成為族群間的新張力。社區的日常連結，是最前線的守望。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia信徒在組屋社區中主動認識不同種族和背景的鄰居</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓AI帶來的財富不均，不成為族群之間新的隔閡</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓本地人和新移民之間，在信仰群體中找到真實的接納</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>為外籍勞工宿舍社區的關懷和連結代禱</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">神啊，你從一血脈造出萬族萬民。求你讓新加坡的多元，成為見證而非裂縫。讓Ekklesia信徒家庭在社區中成為橋樑——跨越語言、跨越種族、跨越新舊移民的界限，讓鄰舍真正成為鄰舍。讓我們的組屋走廊，成為神國降臨的地方。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">04</div>
+        <div class="card-title-wrap"><div class="card-title">為外籍勞工家庭和群體禱告</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">低薪外籍勞工是新加坡最脆弱的群體，也是政策最容易忽略的群體。他們在宿舍、在建築工地、在廚房——他們也是神所愛的。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神保護他們在AI自動化中不首先被取代和遺棄</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓他們在遠離家鄉的新加坡，感受到被尊重和被愛</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia信徒家庭主動跨越隔閡，建立與外籍勞工的真實關係</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓更多Ekklesia信徒感受到對這群體的使命和呼召</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">主啊，那些從孟加拉、印度、緬甸遠道而來的勞工，你看見他們每一個人。求你讓新加坡的信徒家庭，不只是他們在地上的雇主或鄰居，更成為他們在異鄉感受到神愛的管道。讓外籍勞工事工在新加坡Ekklesia（一群跟隨耶穌的門徒）中得到更大的重視和資源。</p>
+        </div>
+      </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">05</div>
+        <div class="card-title-wrap"><div class="card-title">為兒童與幼兒守望禱告</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">新加坡最新研究（2025年12月，A*STAR × NUS）發現：2歲前過多螢幕時間，與青少年期腦部發育改變、決策緩慢及焦慮症直接相關。在TFR 0.87的危機中，每一個孩子都是珍貴的產業，需要Ekklesia信徒的守望。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神保護嬰幼兒（0-6歲）免受過度螢幕時間傷害腦部發育，讓父母有智慧建立健康的家庭數字習慣</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓低收入家庭的孩子，透過KidSTART計劃和ECDA幼兒教育補貼，真正得到公平的起跑線</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>為在父母失業壓力、家庭緊張中成長的孩子守望，求神保護他們的心靈不承受不應屬於他們的重擔</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia信徒家庭成為社區中孩子的安全避風港，讓每一個孩子都感受到被愛和被看見</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>為那72%曾使用AI伴侶的青少年守望，求神讓他們在真實的人際關係和信仰群體中找到真正的歸屬</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">主耶穌，你說「讓小孩子到我這裡來，不要禁止他們」。求你讓新加坡的每一個孩子——無論是富裕家庭還是低收入家庭、本地人還是外籍勞工的孩子——都感受到你的愛。在螢幕和AI充斥的時代，讓孩子先認識你這位創造者，再認識科技這個工具。讓Ekklesia信徒家庭，成為這城市孩子的守護者。</p>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-num">06</div>
+        <div class="card-title-wrap"><div class="card-title">為年長者守望禱告</div></div>
+        <div class="card-arrow">▼</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">2026年新加坡正式進入「超老齡社會」（65歲以上佔20%）。789,580名65歲以上長者中，獨居長者戶數從2014年的42,100戶增至2024年的87,200戶——十年翻倍。2030年預計達122,000名獨居長者。衛生部長吳義遠稱孤獨是「許多長者最大的敵人」。</p>
+        <div class="direction-list">
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Ekklesia信徒家庭主動探訪社區中的獨居長者，讓他們不在組屋一角被遺忘</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>為照顧年邁父母的「夾心世代」代禱——同時面對職場壓力和照顧重擔，平均每週付出42小時</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓失智症患者（60歲以上佔10%，約51,934人）和他們的照顧者，得到神的力量和社區的支援</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>為2026年7月1日退休年齡提升至64歲的政策守望，讓年長工人得到公平對待而非年齡歧視</div>
+          <div class="direction-item"><span class="direction-dot">✦</span>求神讓Age Well SG計劃真正幫助長者留在社區中老化，有尊嚴地度過晚年</div>
+        </div>
+        <div class="prayer-box">
+          <div class="prayer-label">🙏 守望禱告</div>
+          <p class="prayer-text">主啊，你說白髮是榮耀的冠冕。求你讓新加坡的87,200名獨居長者，每一個人都感受到被看顧。讓Ekklesia信徒不只在主日問安，也在週間敲門探訪、陪同覆診、一起吃飯。讓那些在失智症黑暗中的長者，仍感受到你的同在。讓照顧父母的中年信徒，在疲憊中得著你的更新和力量。</p>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="sep"><span></span><span class="sep-icon">✦</span><span></span></div>
+  <div class="closing-prayer">
+    <h3>✦ 家庭社區崗位守望宣告 ✦</h3>
+    <p>「我們在廚房、在組屋走廊、在社區中心守望——讓每一個家庭都成為神國的縮影，讓每一個鄰舍關係都成為盼望的見證。」</p>
+  </div>
+</div>
+
+</main>
+
+<!-- FOOTER -->
+
+<!-- KINGDOM TENSION BANNER -->
+<div class="kingdom-banner">
+  <div class="kb-title">✦ 天國與世界的張力 · 在多元種族社會中守望 ✦</div>
+  <div class="kb-grid">
+    <div class="kb-col kb-world">
+      <div class="kb-col-title world-t">🌍 世界的出路</div>
+      <div class="kb-item">GDP增長與AI競爭力</div>
+      <div class="kb-item">種族和諧（表面共存）</div>
+      <div class="kb-item">ESR 32項建議</div>
+      <div class="kb-item">地緣政治的影響力</div>
+      <div class="kb-item">科技解決社會問題</div>
+    </div>
+    <div class="kb-col kb-kingdom">
+      <div class="kb-col-title kingdom-t">👑 天國的出路</div>
+      <div class="kb-item">神的國降臨，公義充滿全地</div>
+      <div class="kb-item">萬族合一（深層相愛）</div>
+      <div class="kb-item">神國永恆的應許</div>
+      <div class="kb-item">萬王之王的統管</div>
+      <div class="kb-item">「我是道路、真理、生命」</div>
+    </div>
+  </div>
+  <div class="kb-tensions">
+    <div class="kb-tension-item">
+      <div class="kb-tension-title">🌏 張力一：多元宗教 vs 耶穌是唯一道路</div>
+      <div class="kb-tension-desc">新加坡宗教和諧法律要求尊重各信仰——這是合理的公民責任。但Ekklesia持守「耶穌是道路、真理、生命」，與尊重他人選擇並不矛盾。關鍵是以生命見證，而非爭辯對抗。「你們的光也當這樣照在人前，叫他們看見你們的好行為，便將榮耀歸給你們在天上的父。」— 馬太福音 5:16</div>
+    </div>
+    <div class="kb-tension-item">
+      <div class="kb-tension-title">👑 張力二：國家主權 vs 神的主權</div>
+      <div class="kb-tension-desc">新加坡政府以務實治理著稱，但「君王的心在耶和華手中，好像隴溝的水隨意流轉。」（箴言21:1）Ekklesia在承認政府的同時，更深地承認神的主權。守望是在兩者之間持守正確的次序。</div>
+    </div>
+    <div class="kb-tension-item">
+      <div class="kb-tension-title">🕊️ 張力三：地上和諧 vs 天國合一</div>
+      <div class="kb-tension-desc">新加坡的種族和諧是地上智慧的成就。但天國的合一更深——「各族、各方、各民、各國」在羔羊面前的真實合一。（啟示錄5:9）Ekklesia可以在多元的新加坡中，預先示範天國的合一，這是最有力的見證。</div>
+    </div>
+    <div class="kb-tension-item">
+      <div class="kb-tension-title">✨ 張力四：MARANATHA在多元社會中的守望</div>
+      <div class="kb-tension-desc">「他身上有名寫著說：萬王之王，萬主之主。」（啟示錄19:16）守望主再來，不是逃避多元社會，而是以天國終點的眼光，更認真地服事當下——因為神愛新加坡每一個種族、每一個靈魂。</div>
+    </div>
+  </div>
+  <div class="kb-prayer">
+    <div class="kb-prayer-label">🙏 守望之禱</div>
+    <p class="kb-prayer-text">主啊，你是創造宇宙萬有的神，萬物藉著你造，沒有一樣不是藉著你造的。新加坡每一個種族、每一個宗教信仰的人，都是你所創造、你所愛的。求你讓Ekklesia以愛和謙卑持守信仰，以行動而非爭辯見證你。讓我們守望的禱告，成為這城市屬靈土地上預備祂降臨的工作。直到萬族萬民在羔羊面前同聲頌讚。<br><br>
+    <strong style="color:#C9A84C;">MARANATHA — 主耶穌啊，我願你來！</strong></p>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="maranatha">MARANATHA</div>
+  <p>主耶穌啊，我願你來！</p>
+  <p style="margin-top:8px;">新加坡 Ekklesia 守望禱告 · 2026</p>
+  <p style="margin-top:4px; font-size:.7rem; opacity:.5;">適用於個人靈修 · 小組代禱 · Ekklesia守望禱告聚會</p>
+</footer>
+
+<script>
+function switchTab(index) {
+  document.querySelectorAll('.nav-tab').forEach((t, i) => {
+    t.classList.toggle('active', i === index);
+  });
+  document.querySelectorAll('.section-panel').forEach((p, i) => {
+    p.classList.toggle('active', i === index);
+  });
+  // Scroll nav tab into view
+  const tabs = document.querySelectorAll('.nav-tab');
+  tabs[index].scrollIntoView({ behavior:'smooth', block:'nearest', inline:'center' });
+  // Scroll to top of content
+  window.scrollTo({ top: document.querySelector('.nav-wrap').offsetTop, behavior:'smooth' });
+}
+
+function toggleCard(card) {
+  const isOpen = card.classList.contains('open');
+  // Close all cards in same panel - handle cases where card may be outside .cards
+  const container = card.closest('.cards') || card.closest('.section-panel') || card.parentElement;
+  container.querySelectorAll('.card').forEach(c => c.classList.remove('open'));
+  if (!isOpen) card.classList.add('open');
+}
+</script>
+</body>
+</html>
